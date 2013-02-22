@@ -12,6 +12,7 @@
 #define PaddingPercentage .7
 
 @interface ProgressView()
+@property (strong, nonatomic) UIColor *progressColor;
 @property float percentage;
 @property CGFloat linkThickness;
 @property BOOL doFill;
