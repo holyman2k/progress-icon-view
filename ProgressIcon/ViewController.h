@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "ProgressView.h"
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet ProgressView *progressView;
 @end
