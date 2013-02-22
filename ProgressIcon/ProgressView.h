@@ -11,4 +11,8 @@
 @interface ProgressView : UIView
 @property (strong, nonatomic) UIColor *progressColor;
 - (void)setProgress:(float)percentage;
+
+- (void)setFillModeWithColor:(UIColor *)color;
+
+- (void)setStrokModeWithColor:(UIColor *)color andThickness:(CGFloat)thickness;
 @end

@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="JF9-LO-JGq" customClass="ProgressView">
-                                <rect key="frame" x="71" y="94" width="32" height="32"/>
+                                <rect key="frame" x="71" y="94" width="212" height="196"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -24,6 +24,20 @@
                                     <action selector="setProgress:" destination="2" eventType="valueChanged" id="9GJ-fu-a9n"/>
                                 </connections>
                             </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="O7y-H0-Juo">
+                                <rect key="frame" x="223" y="462" width="79" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchFillMode:" destination="2" eventType="valueChanged" id="5hy-dU-x0z"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Fill with color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CMt-gA-Sf5">
+                                <rect key="frame" x="20" y="465" width="195" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -42,9 +56,8 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="progress20:"/>
-                <relationship kind="action" name="progress40:"/>
                 <relationship kind="action" name="setProgress:" candidateClass="UISlider"/>
+                <relationship kind="action" name="switchFillMode:" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="progressView" candidateClass="ProgressView"/>
             </relationships>
         </class>

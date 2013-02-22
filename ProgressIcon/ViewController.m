@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.progressView.progressColor = [UIColor blueColor];
+    [self.progressView setFillModeWithColor:[UIColor blackColor]];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -28,18 +28,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)progress20:(id)sender
+- (IBAction)switchFillMode:(UISwitch *)sender
 {
-    [self.progressView setProgress:.25];
+    if (sender.selected) {
+        [self.progressView setFillModeWithColor:[UIColor blackColor]];
+    } else {
+        [self.progressView setStrokModeWithColor:[UIColor blackColor] andThickness:3];
+    }
     
-    [self.progressView setNeedsDisplay];
+    [self.progressView setNeedsDisplay];    
 }
-- (IBAction)progress40:(id)sender
-{
-    [self.progressView setProgress:.5];
-    
-    [self.progressView setNeedsDisplay];
-}
+
 - (IBAction)setProgress:(UISlider *)sender
 {
     NSLog(@"slider %f", sender.value);

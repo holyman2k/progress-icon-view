@@ -13,16 +13,41 @@
 
 @interface ProgressView()
 @property float percentage;
+@property CGFloat linkThickness;
+@property BOOL doFill;
 @end
 
 @implementation ProgressView
 @synthesize percentage = _percentage;
 @synthesize progressColor = _progressColor;
+@synthesize doFill = _doFill;
+@synthesize linkThickness = _linkThickness;
+
+#pragma mark - accessors
 
 - (UIColor *)progressColor {
     if (!_progressColor) _progressColor = [UIColor blackColor];
     return _progressColor;
 }
+
+#pragma mark - set modes
+
+- (void)setFillModeWithColor:(UIColor *)color
+{
+    self.doFill = YES;
+    self.progressColor = color;
+    self.linkThickness = .5;
+    
+}
+
+- (void)setStrokModeWithColor:(UIColor *)color andThickness:(CGFloat)thickness
+{
+    self.doFill = NO;
+    self.linkThickness = thickness;
+    self.progressColor = color;
+}
+
+#pragma mark - setup
 
 - (void)setup
 {
@@ -57,14 +82,17 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextBeginPath(context);
-    CGContextMoveToPoint(context, centerX, centerY);
+    if (self.doFill) CGContextMoveToPoint(context, centerX, centerY);
     CGContextAddLineToPoint(context, centerX, centerY - radius);
     CGContextAddArc(context, centerX, centerY, radius, startAngle, endAngle, 0);
     CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
     CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
-    CGContextSetLineWidth(context, ProgresStockThinkness);
-//    CGContextStrokePath(context);
-    CGContextDrawPath(context, kCGPathFillStroke);
+    CGContextSetLineWidth(context, self.linkThickness);
+    if (self.doFill) {
+        CGContextDrawPath(context, kCGPathFillStroke);   
+    } else {
+        CGContextStrokePath(context);
+    }
 }
 
 - (void)setProgress:(float)percentage
