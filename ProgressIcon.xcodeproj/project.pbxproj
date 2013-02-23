@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F3ED3A916D97A0800FAE57B /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3ED3A816D97A0800FAE57B /* ProgressView.m */; };
 		6F4B2E6416D7441700546F50 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F4B2E6316D7441700546F50 /* README.md */; };
 		6F7985B916C88FA40060774F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7985B816C88FA40060774F /* UIKit.framework */; };
 		6F7985BB16C88FA40060774F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7985BA16C88FA40060774F /* Foundation.framework */; };
@@ -19,10 +20,11 @@
 		6F7985CF16C88FA40060774F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F7985CE16C88FA40060774F /* Default-568h@2x.png */; };
 		6F7985D216C88FA40060774F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F7985D016C88FA40060774F /* MainStoryboard.storyboard */; };
 		6F7985D516C88FA40060774F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7985D416C88FA40060774F /* ViewController.m */; };
-		6F7985E016C88FEF0060774F /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7985DF16C88FEF0060774F /* ProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F3ED3A716D97A0800FAE57B /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProgressView.h; path = classes/ProgressView.h; sourceTree = "<group>"; };
+		6F3ED3A816D97A0800FAE57B /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProgressView.m; path = classes/ProgressView.m; sourceTree = "<group>"; };
 		6F4B2E6316D7441700546F50 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		6F7985B516C88FA40060774F /* ProgressIcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgressIcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7985B816C88FA40060774F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -40,8 +42,6 @@
 		6F7985D116C88FA40060774F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		6F7985D316C88FA40060774F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6F7985D416C88FA40060774F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6F7985DE16C88FEF0060774F /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
-		6F7985DF16C88FEF0060774F /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +95,8 @@
 				6F7985BF16C88FA40060774F /* Supporting Files */,
 				6F7985D316C88FA40060774F /* ViewController.h */,
 				6F7985D416C88FA40060774F /* ViewController.m */,
-				6F7985DE16C88FEF0060774F /* ProgressView.h */,
-				6F7985DF16C88FEF0060774F /* ProgressView.m */,
+				6F3ED3A716D97A0800FAE57B /* ProgressView.h */,
+				6F3ED3A816D97A0800FAE57B /* ProgressView.m */,
 			);
 			path = ProgressIcon;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 				6F7985C516C88FA40060774F /* main.m in Sources */,
 				6F7985C916C88FA40060774F /* AppDelegate.m in Sources */,
 				6F7985D516C88FA40060774F /* ViewController.m in Sources */,
-				6F7985E016C88FEF0060774F /* ProgressView.m in Sources */,
+				6F3ED3A916D97A0800FAE57B /* ProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
