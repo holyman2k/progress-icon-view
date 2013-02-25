@@ -80,9 +80,14 @@
     CGFloat endAngle = (self.percentage * 2 + 1.5) * M_PI;
 //    NSLog(@"x: %f, y: %f, start angle: %f, end angle: %f", centerX, centerY, startAngle, endAngle);
     
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // allow anti aliasing when drawing progress;
+    CGContextSetAllowsAntialiasing(context, true);
+    CGContextSetShouldAntialias(context, true);
+    
     CGContextBeginPath(context);
+    
     if (self.doFill) CGContextMoveToPoint(context, centerX, centerY);
     CGContextAddLineToPoint(context, centerX, centerY - radius);
     CGContextAddArc(context, centerX, centerY, radius, startAngle, endAngle, 0);
