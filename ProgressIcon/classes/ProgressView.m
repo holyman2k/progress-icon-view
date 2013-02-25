@@ -88,8 +88,10 @@
     
     CGContextBeginPath(context);
     
-    if (self.doFill) CGContextMoveToPoint(context, centerX, centerY);
-    CGContextAddLineToPoint(context, centerX, centerY - radius);
+    if (self.doFill) {
+        CGContextMoveToPoint(context, centerX, centerY);
+        CGContextAddLineToPoint(context, centerX, centerY - radius);
+    }
     CGContextAddArc(context, centerX, centerY, radius, startAngle, endAngle, 0);
     CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
     CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
