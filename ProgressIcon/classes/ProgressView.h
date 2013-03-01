@@ -15,4 +15,6 @@
 - (void)setFillModeWithColor:(UIColor *)color;
 
 - (void)setStrokModeWithColor:(UIColor *)color andThickness:(CGFloat)thickness;
+
+- (void)setStrokFillModeWithColor:(UIColor *)color andThickness:(CGFloat)thickness;
 @end

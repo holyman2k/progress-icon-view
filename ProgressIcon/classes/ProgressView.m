@@ -11,17 +11,21 @@
 #define ProgresStockThinkness 0.5
 #define PaddingPercentage .7
 
+#define FILL_MODE 1
+#define STROKE_MODE 2
+#define STROKE_FILL_MODE 3
+
 @interface ProgressView()
 @property (strong, nonatomic) UIColor *progressColor;
 @property float percentage;
 @property CGFloat linkThickness;
-@property BOOL doFill;
+@property int mode;
 @end
 
 @implementation ProgressView
 @synthesize percentage = _percentage;
 @synthesize progressColor = _progressColor;
-@synthesize doFill = _doFill;
+@synthesize mode = _mode;
 @synthesize linkThickness = _linkThickness;
 
 #pragma mark - accessors
@@ -35,7 +39,7 @@
 
 - (void)setFillModeWithColor:(UIColor *)color
 {
-    self.doFill = YES;
+    self.mode = FILL_MODE;
     self.progressColor = color;
     self.linkThickness = .5;
     
@@ -43,9 +47,15 @@
 
 - (void)setStrokModeWithColor:(UIColor *)color andThickness:(CGFloat)thickness
 {
-    self.doFill = NO;
+    self.mode = STROKE_MODE;
     self.linkThickness = thickness;
     self.progressColor = color;
+}
+- (void)setStrokFillModeWithColor:(UIColor *)color andThickness:(CGFloat)thickness
+{
+    self.mode = STROKE_FILL_MODE;
+    self.linkThickness = thickness;
+    self.progressColor = color;    
 }
 
 #pragma mark - setup
@@ -88,15 +98,29 @@
     
     CGContextBeginPath(context);
     
-    if (self.doFill) {
+    if (self.mode == STROKE_FILL_MODE){
+        CGContextSaveGState(context);
+        CGContextAddArc(context, centerX, centerY, radius, M_PI, 3 * M_PI, 0);
+        CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
+        CGContextSetLineWidth(context, self.linkThickness);
+        CGContextStrokePath(context);
+        CGContextRestoreGState(context);
+    }
+    
+    if (self.mode == FILL_MODE || self.mode == STROKE_FILL_MODE) {
         CGContextMoveToPoint(context, centerX, centerY);
         CGContextAddLineToPoint(context, centerX, centerY - radius);
     }
     CGContextAddArc(context, centerX, centerY, radius, startAngle, endAngle, 0);
-    CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
-    CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
-    CGContextSetLineWidth(context, self.linkThickness);
-    if (self.doFill) {
+    if (self.mode == STROKE_MODE) {
+        CGContextSetLineWidth(context, self.linkThickness);
+    } else {
+        CGContextSetLineWidth(context, .5);
+    }
+    if (self.mode == STROKE_MODE) CGContextSetStrokeColorWithColor(context, self.progressColor.CGColor);
+    if (self.mode == FILL_MODE || self.mode == STROKE_FILL_MODE) CGContextSetFillColorWithColor(context, self.progressColor.CGColor);
+    
+    if (self.mode == FILL_MODE || self.mode == STROKE_FILL_MODE) {
         CGContextDrawPath(context, kCGPathFillStroke);   
     } else {
         CGContextStrokePath(context);
