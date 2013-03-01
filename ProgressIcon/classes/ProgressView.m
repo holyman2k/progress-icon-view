@@ -87,7 +87,7 @@
     CGFloat centerY = self.frame.size.height / 2;
     CGFloat radius = (self.frame.size.width > self.frame.size.height ? self.frame.size.height : self.frame.size.width) / 2 * PaddingPercentage;
     CGFloat startAngle = M_PI * 1.5;
-    CGFloat endAngle = (self.percentage * 2 + 1.5 + .1) * M_PI;
+    CGFloat endAngle = (self.percentage * 2 + 1.5) * M_PI;
 //    NSLog(@"x: %f, y: %f, start angle: %f, end angle: %f", centerX, centerY, startAngle, endAngle);
     
     CGContextRef context = UIGraphicsGetCurrentContext();
