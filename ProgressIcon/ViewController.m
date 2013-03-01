@@ -64,15 +64,15 @@
     switch (row) {
         case 0:
             NSLog(@"fill");
-            [self.progressView setFillModeWithColor:[UIColor blackColor]];
+            [self.progressView setFillModeWithColor:[UIColor whiteColor]];
             break;
         case 1:
             NSLog(@"stroke");
-            [self.progressView setStrokModeWithColor:[UIColor blackColor] andThickness:10];
+            [self.progressView setStrokModeWithColor:[UIColor whiteColor] andThickness:10];
             break;
         case 2:
             NSLog(@"stroke fill");
-            [self.progressView setStrokFillModeWithColor:[UIColor blackColor] andThickness:3];
+            [self.progressView setStrokFillModeWithColor:[UIColor whiteColor] andThickness:10];
             break;
     }
     [self.progressView setNeedsDisplay];
