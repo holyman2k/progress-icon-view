@@ -1,7 +1,8 @@
-progress view icon
+Progress View Icon
 ==================
 
-Used as an icon or a larger view to show progress such as downloading an image.
+Used as an icon on navigation bar/tool bar to indicate progress such as downloading of image 
+or can be used as a view such as place in placeholder for image while downloading
 
 I created it to give user progress percentage when download image for a photo view
 
